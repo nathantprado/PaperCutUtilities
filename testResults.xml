@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="23" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="1" invalid="0" date="2026-10-29" time="20:17:47">
+  <environment os-version="27.0.0" clr-version="10.0.14" user="nathanprado" nunit-version="2.5.8.0" platform="Darwin" user-domain="" cwd="/Users/nathanprado/Library/CloudStorage/ProtonDrive-nathan@prado.family-folder/Projects/copilot-worktrees/nathantprado_PaperCutUtilities/nathantprado-glowing-pancake" machine-name="Mac.home.prado.family" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="TestFixture" name="Pester" executed="True" result="Ignored" success="True" time="0.9365" asserts="0" description="Pester">
+    <results>
+      <test-suite type="TestFixture" name="/Users/nathanprado/Library/CloudStorage/ProtonDrive-nathan@prado.family-folder/Projects/copilot-worktrees/nathantprado_PaperCutUtilities/nathantprado-glowing-pancake/Tests/PaperCutUtilities.Tests.ps1" executed="True" result="Ignored" success="True" time="0.9365" asserts="0" description="/Users/nathanprado/Library/CloudStorage/ProtonDrive-nathan@prado.family-folder/Projects/copilot-worktrees/nathantprado_PaperCutUtilities/nathantprado-glowing-pancake/Tests/PaperCutUtilities.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Module" executed="True" result="Success" success="True" time="0.13" asserts="0" description="Module">
+            <results>
+              <test-case description="exports the expected functions" name="Module.exports the expected functions" time="0.0457" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="has comment-based help for every public function" name="Module.has comment-based help for every public function" time="0.0726" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Get-PCUInstallPath" executed="True" result="Success" success="True" time="0.3889" asserts="0" description="Get-PCUInstallPath">
+            <results>
+              <test-case description="prefers process over service and reports the method" name="Get-PCUInstallPath.prefers process over service and reports the method" time="0.1218" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="falls through to service, then registry, then default" name="Get-PCUInstallPath.falls through to service, then registry, then default" time="0.0514" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="errors when nothing valid is found" name="Get-PCUInstallPath.errors when nothing valid is found" time="0.0386" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="caches and honours -Refresh" name="Get-PCUInstallPath.caches and honours -Refresh" time="0.0451" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Cache" executed="True" result="Success" success="True" time="0.4005" asserts="0" description="Cache">
+            <results>
+              <test-case description="Clear-PCUCache and Get-PCUCache work" name="Cache.Clear-PCUCache and Get-PCUCache work" time="0.0093" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Invoke-PCUServerCommand / completer / ApiKey" executed="True" result="Ignored" success="True" time="0.5111" asserts="0" description="Invoke-PCUServerCommand / completer / ApiKey">
+            <results>
+              <test-case description="parses commands from help output" name="Invoke-PCUServerCommand / completer / ApiKey.parses commands from help output" time="0.0046" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="builds and caches the command list" name="Invoke-PCUServerCommand / completer / ApiKey.builds and caches the command list" time="0.0248" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="returns Health API key as SecureString by default and plain text on request" name="Invoke-PCUServerCommand / completer / ApiKey.returns Health API key as SecureString by default and plain text on request" time="0.0602" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="uses the XmlRpc config key" name="Invoke-PCUServerCommand / completer / ApiKey.uses the XmlRpc config key" time="0.0106" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="throws when the key is empty" name="Invoke-PCUServerCommand / completer / ApiKey.throws when the key is empty" time="0.0073" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="invokes server-command and returns exit code" name="Invoke-PCUServerCommand / completer / ApiKey.invokes server-command and returns exit code" time="0.0012" asserts="0" success="False" result="Ignored" executed="False" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Get-PCUConfiguration" executed="True" result="Success" success="True" time="0.5834" asserts="0" description="Get-PCUConfiguration">
+            <results>
+              <test-case description="detects database, HA and ports, masking secrets" name="Get-PCUConfiguration.detects database, HA and ports, masking secrets" time="0.0504" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="defaults to Derby with no db settings" name="Get-PCUConfiguration.defaults to Derby with no db settings" time="0.0171" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Get-PCUServer" executed="True" result="Success" success="True" time="0.6257" asserts="0" description="Get-PCUServer">
+            <results>
+              <test-case description="merges service, config and specified servers with roles" name="Get-PCUServer.merges service, config and specified servers with roles" time="0.0409" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Test-PCUConnectivity" executed="True" result="Success" success="True" time="0.6686" asserts="0" description="Test-PCUConnectivity">
+            <results>
+              <test-case description="tests default and configured ports per server" name="Test-PCUConnectivity.tests default and configured ports per server" time="0.0414" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Test-PCUDatabase" executed="True" result="Success" success="True" time="0.734" asserts="0" description="Test-PCUDatabase">
+            <results>
+              <test-case description="parses JDBC URLs" name="Test-PCUDatabase.parses JDBC URLs" time="0.0148" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="reports Derby as not testable" name="Test-PCUDatabase.reports Derby as not testable" time="0.0089" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="is unhealthy when the port is closed" name="Test-PCUDatabase.is unhealthy when the port is closed" time="0.0136" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="attempts login when credentials are plain and skips encrypted ones" name="Test-PCUDatabase.attempts login when credentials are plain and skips encrypted ones" time="0.0263" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="Get-PCUHealth" executed="True" result="Success" success="True" time="0.7763" asserts="0" description="Get-PCUHealth">
+            <results>
+              <test-case description="rolls up check statuses" name="Get-PCUHealth.rolls up check statuses" time="0.0339" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="is unhealthy when install is missing" name="Get-PCUHealth.is unhealthy when install is missing" time="0.0064" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

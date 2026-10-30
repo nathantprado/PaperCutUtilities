@@ -1,0 +1,40 @@
+name: Module CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Lint and test (Windows PowerShell 5.1)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: PSScriptAnalyzer
+        shell: powershell
+        run: |
+          Install-Module PSScriptAnalyzer -Scope CurrentUser -Force
+          $r = Invoke-ScriptAnalyzer -Path . -Recurse -Settings ./PSScriptAnalyzerSettings.psd1
+          $r | Format-Table RuleName, Severity, ScriptName, Line -AutoSize
+          if ($r | Where-Object Severity -eq 'Error') { exit 1 }
+
+      - name: Pester (PowerShell 5.1)
+        shell: powershell
+        run: |
+          Install-Module Pester -MinimumVersion 5.3 -Scope CurrentUser -Force -SkipPublisherCheck
+          Import-Module Pester -MinimumVersion 5.3
+          $result = Invoke-Pester -Path ./Tests -CI -Output Detailed -PassThru
+          if ($result.FailedCount -gt 0) { exit 1 }
+
+      - name: Pester (PowerShell 7)
+        shell: pwsh
+        run: |
+          Install-Module Pester -MinimumVersion 5.3 -Scope CurrentUser -Force -SkipPublisherCheck
+          $result = Invoke-Pester -Path ./Tests -CI -Output Detailed -PassThru
+          if ($result.FailedCount -gt 0) { exit 1 }
